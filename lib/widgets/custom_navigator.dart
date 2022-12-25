@@ -14,4 +14,17 @@ class CustomNavigator {
           child: page,
         ));
   }
+
+  static pushReplacement(context, {required Widget page}) {
+    Navigator.pushReplacement(
+        context,
+        PageTransition(
+          type: PageTransitionType.rotate,
+          duration: Duration(milliseconds: 300),
+          reverseDuration: Duration(milliseconds: 300),
+          alignment: Alignment.center,
+          childCurrent: Container(),
+          child: page,
+        ));
+  }
 }

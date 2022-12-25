@@ -30,9 +30,9 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
 
   var pages = [
     HomeScreen(),
+    const MyFilesScreen(),
     const CategorisScreen(),
     const PackagesScreen(),
-    const MyFilesScreen(),
     const MoreScreen()
   ];
   var titles = <String>[
@@ -114,54 +114,5 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         ),
       ),
     );
-
-    //    AnimatedBottomNavigationBar(
-    //     icons: iconList,
-
-    //     activeIndex: currentIndex,
-    //     gapLocation: GapLocation.none,
-    //     activeColor: Colors.red,
-    //     notchSmoothness: NotchSmoothness.verySmoothEdge,
-    //     leftCornerRadius: 0,
-    //     rightCornerRadius: 0,
-    //     onTap: _onItemTapped,
-    //   ),
-    // );
-
-    // Scaffold(
-    //   key: _scaffoldKey,
-    //   body: pages[currentIndex],
-    //   bottomNavigationBar: BottomNavigationBar(
-    //     backgroundColor: AppColors.colorOrange,
-    //     selectedItemColor: Colors.black,
-    //     unselectedItemColor: Colors.red,
-    //     currentIndex: currentIndex,
-    //     type: BottomNavigationBarType.fixed,
-    //     onTap: _onItemTapped,
-    //     items: <BottomNavigationBarItem>[
-    //       const BottomNavigationBarItem(
-    //         icon: Icon(Icons.home),
-    //         label: 'الرئيسية',
-    //       ),
-    //       const BottomNavigationBarItem(
-    //         icon: Icon(Icons.file_copy),
-    //         label: 'ملفاتي',
-    //       ),
-    //       const BottomNavigationBarItem(
-    //         //
-    //         icon: Icon(Icons.category),
-    //         label: 'التصنيفات',
-    //       ),
-    //       const BottomNavigationBarItem(
-    //         icon: Icon(Icons.pages),
-    //         label: 'الباقات',
-    //       ),
-    //       const BottomNavigationBarItem(
-    //         icon: Icon(Icons.menu),
-    //         label: 'المزيد',
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }

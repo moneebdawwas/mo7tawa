@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:majlaat/providers/base_provider.dart';
 import 'package:majlaat/providers/home_provider.dart';
 import 'package:majlaat/providers/language_provider.dart';
+import 'package:majlaat/screens/show_category_screen.dart';
 import 'package:majlaat/screens/splash_screen.dart';
 import 'package:majlaat/widgets/custom_navigation_bar.dart';
 

@@ -72,10 +72,7 @@ class _CustomScreenState extends State<CustomScreen> {
                 width: 60,
                 child: CustomInkwell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => const ProfileScreen())));
+                    showProfileDialog(context);
                   },
                   child: const Center(
                       child: Icon(

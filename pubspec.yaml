@@ -26,6 +26,8 @@ dependencies:
   url_launcher: ^6.1.7
   animated_bottom_navigation_bar: ^1.1.0
   page_transition: ^2.0.9
+  sqflite: ^2.2.2
+  path: ^1.8.2
 
 
 
