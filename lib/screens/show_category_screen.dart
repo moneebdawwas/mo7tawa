@@ -9,11 +9,10 @@ import 'package:majlaat/screens/video_screen.dart';
 import 'package:majlaat/widgets/custom_navigator.dart';
 import 'package:majlaat/widgets/custom_screen.dart';
 import 'package:majlaat/widgets/filled_button.dart';
-import 'package:provider/provider.dart';
 
 import '../models/my_files_model.dart';
 
-class ShowCategoryScreen extends StatelessWidget {
+class ShowCategoryScreen extends StatefulWidget {
   String thumbnail;
   String type;
   String url;
@@ -27,9 +26,15 @@ class ShowCategoryScreen extends StatelessWidget {
   });
 
   @override
+  State<ShowCategoryScreen> createState() => _ShowCategoryScreenState();
+}
+
+class _ShowCategoryScreenState extends State<ShowCategoryScreen> {
+  bool changeFavorite = false;
+  @override
   Widget build(BuildContext context) {
     return CustomScreen(
-        title: title,
+        title: widget.title,
         body: Column(
           children: [
             getImageAndButtons(context),
@@ -52,7 +57,7 @@ class ShowCategoryScreen extends StatelessWidget {
               child: CachedNetworkImage(
                 width: 200,
                 height: 220,
-                imageUrl: thumbnail,
+                imageUrl: widget.thumbnail,
                 fit: BoxFit.fitHeight,
                 placeholder: (context, url) => Container(),
                 errorWidget: (context, url, error) => Column(
@@ -78,14 +83,20 @@ class ShowCategoryScreen extends StatelessWidget {
                       background: AppColors.colorOrange,
                       title: '',
                       onPressed: () async {
-                        DpHelper helper = DpHelper();
-                        MyFileModel model = MyFileModel({
-                          'thumbnail': thumbnail,
-                          'type': type,
-                          'url': url,
-                          'title': title
+                        setState(() {
+                          changeFavorite = !changeFavorite;
                         });
-                        int id = await helper.createCategories(model);
+
+                        if (changeFavorite) {
+                          DpHelper helper = DpHelper();
+                          MyFileModel model = MyFileModel({
+                            'thumbnail': widget.thumbnail,
+                            'type': widget.type,
+                            'url': widget.url,
+                            'title': widget.title
+                          });
+                          int id = await helper.createCategories(model);
+                        } else {}
                       },
                     ),
                   ),
@@ -95,7 +106,7 @@ class ShowCategoryScreen extends StatelessWidget {
                       right: 5,
                       left: 5,
                       child: Icon(
-                        Icons.favorite_border,
+                        changeFavorite ? Icons.favorite : Icons.favorite_border,
                         color: Colors.white,
                       ))
                 ],
@@ -120,12 +131,12 @@ class ShowCategoryScreen extends StatelessWidget {
   }
 
   onTapItemAction(context) {
-    if (type == 'story') {
-      CustomNavigator.push(context, page: StroyScreen(url: url));
-    } else if (type == 'video') {
-      CustomNavigator.push(context, page: VideoScreen(videoUrl: url));
-    } else if (type == 'pdf') {
-      CustomNavigator.push(context, page: PdfScreen(url: url));
+    if (widget.type == 'story') {
+      CustomNavigator.push(context, page: StroyScreen(url: widget.url));
+    } else if (widget.type == 'video') {
+      CustomNavigator.push(context, page: VideoScreen(videoUrl: widget.url));
+    } else if (widget.type == 'pdf') {
+      CustomNavigator.push(context, page: PdfScreen(url: widget.url));
     }
   }
 }

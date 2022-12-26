@@ -6,6 +6,7 @@ class CustomShadowContainer extends StatelessWidget {
   EdgeInsetsGeometry padding;
   double radius;
   Color color;
+
   CustomShadowContainer({
     Key? key,
     required this.child,

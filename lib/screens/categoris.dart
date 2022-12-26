@@ -19,6 +19,7 @@ class _CategorisScreenState extends State<CategorisScreen> {
   Widget build(BuildContext context) {
     return CustomScreen(
         title: 'التصنيفات',
+        removeBack: true,
         body: Consumer<HomeProvider>(
           builder: (context, value, child) {
             return getPageBody(value);

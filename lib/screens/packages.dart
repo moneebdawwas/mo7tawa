@@ -18,6 +18,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
   Widget build(BuildContext context) {
     return CustomScreen(
       title: 'الباقات',
+      removeBack: true,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
         child: Column(
