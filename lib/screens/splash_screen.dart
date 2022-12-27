@@ -50,21 +50,11 @@ class _SplashScreenState extends State<SplashScreen> {
                       await SharedPreferences.getInstance();
 
                   if (prefs.getBool('needUpdate') == true) {
-                    Future.delayed(
-                      Duration.zero,
-                      () async {
-                        await Provider.of<HomeProvider>(context, listen: false)
-                            .homeDataRequest(context);
-                      },
-                    );
+                    Provider.of<HomeProvider>(context, listen: false)
+                        .homeDataRequest(context);
                   } else {
-                    Future.delayed(
-                      Duration.zero,
-                      () async {
-                        await Provider.of<HomeProvider>(context, listen: false)
-                            .getHomeData(context);
-                      },
-                    );
+                    Provider.of<HomeProvider>(context, listen: false)
+                        .getHomeData(context);
                   }
                 },
                 child: Text('Go  TO  Home'))

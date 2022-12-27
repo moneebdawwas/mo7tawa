@@ -12,31 +12,31 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
- 
-
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeProvider>(builder: (context, value, child) {
-      if (value.isLoading && value.isFirstLoad) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      } else {
-        return CustomScreen(
-          removeBack: true,
-          title: 'الرئيسية',
-          body: ListView.builder(
-            padding:
-                const EdgeInsets.only(right: 15, left: 15, bottom: 30, top: 15),
-            itemCount: value.homeDataResponseModel?.categories?.length,
-            itemBuilder: ((context, index) {
-              return CustomScrollableItems(
-                index: index,
-              );
-            }),
-          ),
-        );
-      }
-    });
+    return CustomScreen(
+      removeBack: true,
+      title: 'الرئيسية',
+      body: Consumer<HomeProvider>(
+        builder: (context, value, child) {
+          if (value.isLoading && value.isFirstLoad) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return ListView.builder(
+              padding: const EdgeInsets.only(
+                  right: 15, left: 15, bottom: 30, top: 15),
+              itemCount: value.homeDataResponseModel?.categories?.length,
+              itemBuilder: ((context, index) {
+                return CustomScrollableItems(
+                  index: index,
+                );
+              }),
+            );
+          }
+        },
+      ),
+    );
   }
 }

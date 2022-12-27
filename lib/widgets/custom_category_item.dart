@@ -1,12 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:majlaat/constants/colors.dart';
-import 'package:majlaat/helper/dp_helper.dart';
-import 'package:majlaat/models/my_files_model.dart';
-import 'package:majlaat/screens/pdf_screen.dart';
 import 'package:majlaat/screens/show_category_screen.dart';
-import 'package:majlaat/screens/story_screen.dart';
-import 'package:majlaat/screens/video_screen.dart';
 import 'package:majlaat/widgets/custom_navigator.dart';
 import 'package:majlaat/widgets/custom_shadow_text.dart';
 import 'custom_inkwell.dart';
@@ -64,7 +59,7 @@ class CustomCategoryItem extends StatelessWidget {
                 ),
               )),
         ),
-        SizedBox(height: 3),
+        const SizedBox(height: 3),
         CustomShadowText(
           text: title,
           shadowColor: Colors.black,

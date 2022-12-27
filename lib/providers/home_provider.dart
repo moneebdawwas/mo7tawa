@@ -17,12 +17,7 @@ class HomeProvider extends BaseProvider {
   HomeDataResponseModel? homeDataResponseModel;
 
   Future getHomeData(BuildContext context) async {
-    Future.delayed(
-      Duration.zero,
-      () async {
-        await getLastUpdateDate();
-      },
-    );
+    getLastUpdateDate();
 
     String fileName = 'homedata.json';
     var directory = await getTemporaryDirectory();
@@ -43,12 +38,7 @@ class HomeProvider extends BaseProvider {
 
       return jsonDecode(jsonData);
     } else {
-      Future.delayed(
-        Duration.zero,
-        () async {
-          await homeDataRequest(context);
-        },
-      );
+      homeDataRequest(context);
     }
   }
 
