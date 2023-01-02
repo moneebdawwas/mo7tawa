@@ -22,7 +22,7 @@ class DpHelper {
   initDB(Database dp, int version) {
     // Create Tables
     dp.execute(
-        'create table categories(thumbnail varchar(50), type varchar(50), url varchar(50), title varchar(50))');
+        'create table categories(id integer primary key autoincrement, thumbnail varchar(50), type varchar(50), url varchar(50), title varchar(50))');
   }
 
   Future<int> createCategories(MyFileModel myFileModel) async {

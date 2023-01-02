@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:majlaat/helper/dp_helper.dart';
 import 'package:majlaat/providers/base_provider.dart';
 import 'package:majlaat/providers/home_provider.dart';
 import 'package:majlaat/providers/language_provider.dart';

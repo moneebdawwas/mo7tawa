@@ -8,6 +8,7 @@ class HomeDataResponseModelCategoriesChapters {
   String? url;
   String? date;
   String? type;
+  bool? isFavorite;
 
   HomeDataResponseModelCategoriesChapters({
     this.id,
@@ -17,6 +18,7 @@ class HomeDataResponseModelCategoriesChapters {
     this.url,
     this.date,
     this.type,
+    this.isFavorite,
   });
   HomeDataResponseModelCategoriesChapters.fromJson(Map<String, dynamic> json) {
     id = json['id']?.toString();
@@ -26,6 +28,7 @@ class HomeDataResponseModelCategoriesChapters {
     url = json['url']?.toString();
     date = json['date']?.toString();
     type = json['type']?.toString();
+    isFavorite = false;
   }
 }
 

@@ -26,21 +26,28 @@ class _MyFilesScreenState extends State<MyFilesScreen> {
             if (!snapshot.hasData) {
               return const CircularProgressIndicator();
             } else {
-              return GridView.builder(
+              return ListView.builder(
                   padding: const EdgeInsets.only(
                       top: 15, right: 5, left: 5, bottom: 30),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 0,
-                    crossAxisSpacing: 0,
-                  ),
                   itemCount: snapshot.data?.length,
                   itemBuilder: ((context, index) {
-                    return CustomCategoryItem(
-                      thumbnail: snapshot.data?[index]['thumbnail'] ?? '',
-                      type: snapshot.data?[index]['type'] ?? '',
-                      url: snapshot.data?[index]['url'] ?? '',
-                      title: snapshot.data?[index]['title'] ?? '',
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomCategoryItem(
+                          thumbnail: snapshot.data?[index]['thumbnail'] ?? '',
+                          type: snapshot.data?[index]['type'] ?? '',
+                          url: snapshot.data?[index]['url'] ?? '',
+                          title: snapshot.data?[index]['title'] ?? '',
+                        ),
+                        IconButton(
+                            onPressed: () async {
+                              setState(() {
+                                helper.delete(snapshot.data?[index]['id']);
+                              });
+                            },
+                            icon: Icon(Icons.delete))
+                      ],
                     );
                   }));
             }

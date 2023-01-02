@@ -1,15 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:majlaat/providers/home_provider.dart';
-
 import 'package:majlaat/screens/view_all_items_screen.dart';
 import 'package:majlaat/widgets/custom_category_item.dart';
 import 'package:majlaat/widgets/custom_inkwell.dart';
 import 'package:majlaat/widgets/custom_navigator.dart';
 import 'package:majlaat/widgets/custom_shadow_container.dart';
-
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomScrollableItems extends StatefulWidget {
   int index;

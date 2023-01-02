@@ -2,14 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:majlaat/constants/colors.dart';
 import 'package:majlaat/helper/dp_helper.dart';
-import 'package:majlaat/providers/home_provider.dart';
 import 'package:majlaat/screens/pdf_screen.dart';
 import 'package:majlaat/screens/story_screen.dart';
 import 'package:majlaat/screens/video_screen.dart';
 import 'package:majlaat/widgets/custom_navigator.dart';
 import 'package:majlaat/widgets/custom_screen.dart';
 import 'package:majlaat/widgets/filled_button.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/my_files_model.dart';
 
 class ShowCategoryScreen extends StatefulWidget {
@@ -31,6 +30,7 @@ class ShowCategoryScreen extends StatefulWidget {
 
 class _ShowCategoryScreenState extends State<ShowCategoryScreen> {
   bool changeFavorite = false;
+
   @override
   Widget build(BuildContext context) {
     return CustomScreen(
@@ -86,6 +86,9 @@ class _ShowCategoryScreenState extends State<ShowCategoryScreen> {
                         setState(() {
                           changeFavorite = !changeFavorite;
                         });
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.setBool('favorite', changeFavorite);
 
                         if (changeFavorite) {
                           DpHelper helper = DpHelper();
@@ -93,7 +96,7 @@ class _ShowCategoryScreenState extends State<ShowCategoryScreen> {
                             'thumbnail': widget.thumbnail,
                             'type': widget.type,
                             'url': widget.url,
-                            'title': widget.title
+                            'title': widget.title,
                           });
                           int id = await helper.createCategories(model);
                         } else {}
