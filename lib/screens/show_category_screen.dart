@@ -66,6 +66,7 @@ class _ShowCategoryScreenState extends State<ShowCategoryScreen> {
                     Icon(
                       Icons.error,
                       size: 50,
+                      color: Colors.white,
                     ),
                     Text('NO IMAGE')
                   ],
