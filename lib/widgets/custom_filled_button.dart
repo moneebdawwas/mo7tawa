@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:majlaat/widgets/custom_shadow_text.dart';
 
-class FilledButton extends StatelessWidget {
+class CustomCustomFilledButton extends StatelessWidget {
   final String title;
   Color? background;
 
   final VoidCallback onPressed;
 
-  FilledButton({
+  CustomCustomFilledButton({
     Key? key,
     required this.title,
     this.background = Colors.black,

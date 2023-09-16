@@ -22,7 +22,7 @@ class HomeProvider extends BaseProvider {
     String fileName = 'homedata.json';
     var directory = await getTemporaryDirectory();
     File file = new File(directory.path + '/' + fileName);
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
 
     if (file.existsSync()) {
       var jsonData = file.readAsStringSync();

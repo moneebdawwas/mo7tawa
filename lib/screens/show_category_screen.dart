@@ -7,7 +7,7 @@ import 'package:majlaat/screens/story_screen.dart';
 import 'package:majlaat/screens/video_screen.dart';
 import 'package:majlaat/widgets/custom_navigator.dart';
 import 'package:majlaat/widgets/custom_screen.dart';
-import 'package:majlaat/widgets/filled_button.dart';
+import 'package:majlaat/widgets/custom_filled_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/my_files_model.dart';
 
@@ -80,7 +80,7 @@ class _ShowCategoryScreenState extends State<ShowCategoryScreen> {
                   SizedBox(
                     width: 80,
                     height: 40,
-                    child: FilledButton(
+                    child: CustomCustomFilledButton(
                       background: AppColors.colorOrange,
                       title: '',
                       onPressed: () async {
@@ -119,7 +119,7 @@ class _ShowCategoryScreenState extends State<ShowCategoryScreen> {
               SizedBox(
                 width: 80,
                 height: 40,
-                child: FilledButton(
+                child: CustomCustomFilledButton(
                   background: AppColors.colorOrange,
                   title: 'عرض',
                   onPressed: () {

@@ -4,7 +4,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:majlaat/constants/colors.dart';
 import 'package:majlaat/widgets/custom_screen.dart';
 import 'package:majlaat/widgets/custom_shadow_text.dart';
-import 'package:majlaat/widgets/filled_button.dart';
+
+import '../widgets/custom_filled_button.dart';
 
 class PackagesScreen extends StatefulWidget {
   const PackagesScreen({super.key});
@@ -63,7 +64,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
                       SizedBox(height: 10),
                       SizedBox(
                           height: 40,
-                          child: FilledButton(
+                          child: CustomCustomFilledButton(
                               background: AppColors.colorOrange,
                               title: 'اشترك الان',
                               onPressed: () {}))
@@ -109,7 +110,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
                       SizedBox(height: 10),
                       SizedBox(
                           height: 40,
-                          child: FilledButton(
+                          child: CustomCustomFilledButton(
                               background: AppColors.colorOrange,
                               title: 'اشترك الان',
                               onPressed: () {}))
