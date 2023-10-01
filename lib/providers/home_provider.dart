@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:majlaat/models/home_data_model.dart';
 import 'package:majlaat/models/last_edited_model.dart';
 import 'package:majlaat/providers/base_provider.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:majlaat/widgets/custom_navigation_bar.dart';
 import 'package:majlaat/widgets/custom_navigator.dart';
@@ -22,7 +21,6 @@ class HomeProvider extends BaseProvider {
     String fileName = 'homedata.json';
     var directory = await getTemporaryDirectory();
     File file = new File(directory.path + '/' + fileName);
-    // SharedPreferences prefs = await SharedPreferences.getInstance();
 
     if (file.existsSync()) {
       var jsonData = file.readAsStringSync();
@@ -51,11 +49,14 @@ class HomeProvider extends BaseProvider {
     log('Loading from API');
 
     String url =
-        'https://dash.schoolmagazine.app/chapters/categories/624721e5876f5556896a572b?fbclid=IwAR0m-kbJEYWJqS6ILErjGrOB_PLzU55YfI8avuKuC4TVKljV9GrOBp9R6sg';
+        'https://dash.schoolmagazine.app/chapters/624721e5876f5556896a572b/chapters-list';
 
     var response = await http.get(
       Uri.parse(url),
     );
+
+    log('request'
+        'url: ${url}');
 
     log('response'
         '\nstatus code: ${response.statusCode.toString()}'
@@ -84,7 +85,7 @@ class HomeProvider extends BaseProvider {
   Future getLastUpdateDate() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String url =
-        'https://dash.schoolmagazine.app/chapters/categories/624721e5876f5556896a572b/last-edited';
+        'https://dash.schoolmagazine.app/chapters/624721e5876f5556896a572b/last-edited';
 
     var response = await http.get(
       Uri.parse(url),

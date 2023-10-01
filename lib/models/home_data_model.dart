@@ -54,18 +54,6 @@ class HomeDataResponseModelCategories {
     }
     thumbnail = json['thumbnail']?.toString();
   }
-  Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['name'] = name;
-    if (chapters != null) {
-      final v = chapters;
-      final arr0 = [];
-
-      data['chapters'] = arr0;
-    }
-    data['thumbnail'] = thumbnail;
-    return data;
-  }
 }
 
 class HomeDataResponseModel extends BaseApiResponseModel {
