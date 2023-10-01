@@ -1,34 +1,29 @@
 import 'package:majlaat/services/base_model.dart';
 
-class HomeDataResponseModelCategoriesChapters {
-  String? id;
-  String? title;
+class HomeDataResponseModelCategoriesChapters extends BaseApiResponseModel {
+  String? aspect;
+  String? createdAt;
+  String? date;
+  String? lastUpdated;
   int? pageNumber;
   String? thumbnail;
-  String? url;
-  String? date;
+  String? title;
   String? type;
-  bool? isFavorite;
+  String? video;
+  String? viewUrl;
 
-  HomeDataResponseModelCategoriesChapters({
-    this.id,
-    this.title,
-    this.pageNumber,
-    this.thumbnail,
-    this.url,
-    this.date,
-    this.type,
-    this.isFavorite,
-  });
-  HomeDataResponseModelCategoriesChapters.fromJson(Map<String, dynamic> json) {
-    id = json['id']?.toString();
-    title = json['title']?.toString();
+  HomeDataResponseModelCategoriesChapters.fromJson(Map<String, dynamic> json)
+      : super.fromJson(json) {
+    aspect = json['aspect']?.toString();
+    createdAt = json['createdAt']?.toString();
+    date = json['date']?.toString();
+    lastUpdated = json['lastUpdated']?.toString();
     pageNumber = json['pageNumber']?.toInt();
     thumbnail = json['thumbnail']?.toString();
-    url = json['url']?.toString();
-    date = json['date']?.toString();
+    title = json['title']?.toString();
     type = json['type']?.toString();
-    isFavorite = false;
+    video = json['video']?.toString();
+    viewUrl = json['viewUrl']?.toString();
   }
 }
 
@@ -57,11 +52,12 @@ class HomeDataResponseModelCategories {
 }
 
 class HomeDataResponseModel extends BaseApiResponseModel {
+  String? lastEdit;
   List<HomeDataResponseModelCategories?>? categories;
-  String? lastEdited;
 
   HomeDataResponseModel.fromJson(Map<String, dynamic> json)
       : super.fromJson(json) {
+    lastEdit = json['lastEdit']?.toString();
     if (json['categories'] != null) {
       final v = json['categories'];
       final arr0 = <HomeDataResponseModelCategories>[];
@@ -70,6 +66,5 @@ class HomeDataResponseModel extends BaseApiResponseModel {
       });
       categories = arr0;
     }
-    lastEdited = json['last_edited']?.toString();
   }
 }

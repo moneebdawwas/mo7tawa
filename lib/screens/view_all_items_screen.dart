@@ -47,7 +47,7 @@ class _ViewAllItemsScreenState extends State<ViewAllItemsScreen> {
                   .toString() ??
               '',
           url: value.homeDataResponseModel!.categories![widget.index]
-                  ?.chapters?[index]?.url
+                  ?.chapters?[index]?.viewUrl
                   .toString() ??
               '',
           title: value.homeDataResponseModel!.categories![widget.index]

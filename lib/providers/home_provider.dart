@@ -67,7 +67,7 @@ class HomeProvider extends BaseProvider {
 
     if (response.statusCode == 200) {
       homeDataResponseModel = responseModel;
-      prefs.setString('lastEditedOld', responseModel.lastEdited.toString());
+      prefs.setString('lastEditedOld', responseModel.lastEdit.toString());
 
       file.writeAsStringSync(response.body);
       notifyListeners();

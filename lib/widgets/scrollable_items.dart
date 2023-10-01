@@ -53,7 +53,7 @@ class _CustomScrollableItemsState extends State<CustomScrollableItems> {
                       ?.chapters?[index]?.type ??
                   '',
               url: value.homeDataResponseModel?.categories?[widget.index]
-                      ?.chapters?[index]?.url ??
+                      ?.chapters?[index]?.viewUrl ??
                   '',
               title: value.homeDataResponseModel?.categories?[widget.index]
                       ?.chapters?[index]?.title ??
